@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+@import url(https://fonts.google.com/specimen/Poppins);
+
+:root {
+    --font-pattern: 'Poppins', sans-serif;
+    --color-white: hsl(0, 0%, 100%);
+    --color-purple: hsl(259, 100%, 65%);
+    --color-light_red: hsl(0, 100%, 67%);
+    --color-off_white: hsl(0, 0%, 94%);
+    --color-light_grey: hsl(0, 0%, 86%);
+    --color-smokey_grey: hsl(0, 1%, 44%);
+    --color-off_black: hsl(0, 0%, 8%);
+    --color-footer: hsl(228, 45%, 44%);
+
+}
+
+
+* {
+    font-family: var(--font-pattern);
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--color-light_grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+main {
+    background-color: var(--color-white);
+    width: 400px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 2rem;
+    border-bottom-right-radius: 5rem;
+}
+
+label {
+    font-size: .8rem;
+    font-weight: bolder;
+    color: var(--color-off_black);
+}
+
+input {
+    width: 90%;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--color-light_grey);
+    
+}
+
+input:focus {
+    border: 0.1rem solid var(--color-purple);
+}
+
+span .erro {
+    display: inline-block;
+    color: var(--color-light_red);
+}
+
+.botao {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.botao hr {
+    width: 100%;
+}
+
+.btn {
+    background-color: var(--color-purple);
+    padding: 0.3rem;
+    display: flex;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.boato img {
+    width: 80%;
+}
+
+.blocos {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.dados {
+    color: var(--color-smokey_grey);
+    letter-spacing: 0.1rem;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.saida h1, span {
+    font-size: 2rem;
+}
+
+.saida span {
+    color: var(--color-purple);
+    font-style: italic;
+}
+
+.erro {
+    color: var(--color-light_red);
+    font-size: 0.8rem;
+}
+
+footer {
+    padding-top: 2rem;
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+footer a {
+    font-size: 0.7rem;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        width: 520px;
+    }
+    .btn {
+        position: initial;
+        transform: none; 
+    }
+}

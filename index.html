@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Age-Calculator</title>
+    
+</head>
+<body>
+    <main>
+                   
+        <div class='blocos'>
+            <div class="dados">
+                <label for="dia">DAY</label>
+                <input type="text" name="dia" id="dia" placeholder="dd" required="required" minlength="1" maxlength="2">
+                <span class="erro" id="erDia" ></span>
+            </div>
+            <div class="dados">
+                <label for="mes">MONTH</label>
+                <input type="text" name="mes" id="mes" placeholder="mm" required="required" minlength="1" maxlength="2">
+                <span class= "erro" id="erMes"></span>
+            </div>
+            <div class="dados">
+                <label for="ano">YEAR</label>
+                <input type="text" name="ano" id="ano" placeholder="yyyy" required="required" minlength="4" maxlength="4">
+                <span class="erro" id="erAno"></span>
+            </div>
+        </div>
+        
+        <div class="botao">
+            <hr>
+            <button type="submit" class="btn">
+                <img src="Images/icon-arrow.svg" alt="icon">
+            </button>
+            
+        </div>
+
+        
+        <div class="saida">
+            <h1><span class="resAno">- - </span>years</h1>
+            <h1><span class="resMes">- - </span>months</h1>
+            <h1><span class="resDia">- - </span>days</h1>
+        </div>
+        
+    </main>
+    
+    
+
+    <footer>
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.Coded by <a href="https://github.com/nivia-dev">Nívia Alves</a>.
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
