@@ -12,16 +12,17 @@ const erroEntrada = 'Este campo é necessário';
 const diaErr = 'Insira um dia válido';
 const mesErr = 'Insira um mês válido';
 const anoErr = 'O Ano tem que ser Menor que o atual';
+const mesAno = 'A data tem que ser inferior a atual'
 
 
 function EntradaDia() {
-    let valor = enDia.value;
-    if(valor == '')
+    let vDia = enDia.value;
+    if(vDia == '')
     {
         erDia.innerHTML = erroEntrada;
         return false;
     }
-    else if(valor < 1 || valor > 31)
+    else if(vDia < 1 || vDia > 31)
     {
         erDia.innerHTML = diaErr;
         return false;
@@ -33,15 +34,25 @@ function EntradaDia() {
 }
 
 function EntradaMes() {
-    let valor = enMes.value;
-    if(valor == '')
+    let vMes = enMes.value;
+    let vDia =enDia.value;
+    let dtrinta =(04, 06, 09, 11);
+    if(vMes == '')
     {
         erMes.innerHTML = erroEntrada;
         return false;
     }
-    else if(valor < 1 || valor > 12)
+    else if(vMes < 1 || vMes > 12)
     {
         erMes.innerHTML = mesErr;
+        return false;
+    }else if (vMes == 02 && vDia >=29){
+        erDia.innerHTML = diaErr;
+        return false;
+    }
+    
+    else if (vMes == dtrinta && vDia >30 ) {
+        erDia.innerHTML = diaErr;
         return false;
     }
     else {
@@ -51,20 +62,18 @@ function EntradaMes() {
 }
 
 function EntradaAno() {
-    let valor = enAno.value;
+    let vAno = enAno.value;
     let anoAtual = new Date().getFullYear();
-    console.log(anoAtual);
-    if(valor == '')
+    if(vAno == '')
     {
         erAno.innerHTML = erroEntrada;
         return false;
     }
-    else if(valor > anoAtual)
+    else if(vAno > anoAtual)
     {
         erAno.innerHTML = anoErr;
         return false;
-    }
-    else {
+    }else {
         erAno.innerHTML = '';
         return true;
     }
@@ -72,20 +81,24 @@ function EntradaAno() {
 
 function calculoIdade(aniversario) {
     var dataniver = new Date(aniversario);
-    var today = new Date();
+    var hoje = new Date();
 
-    var anos = today.getFullYear() - dataniver.getFullYear();
-    var meses = today.getMonth() - dataniver.getMonth();
-    var dias = today.getDate() - dataniver.getDate();
+    var anos = hoje.getFullYear() - dataniver.getFullYear();
+    var meses = hoje.getMonth() - dataniver.getMonth();
+    var dias = hoje.getDate() - dataniver.getDate();
+    
 
-    if (meses < 0 || (meses === 0 && dias < 0)) {
+    if (meses === 0 && dias < 0) {
         anos--;
         if (meses === 0) {
-            mrdrd = 11;
-        } else {
+            meses = 11; /*mrdrd */
+        } 
+        else {
             meses = 12 + meses;
         }
         dias = 30 + dias;
+    } else if (meses < 0 && anos <=0){
+        erAno.innerHTML = mesAno;
     }
     resAno.innerHTML = anos;
     resMes.innerHTML = meses;
